@@ -1,0 +1,25 @@
+{
+	"trailingComma": "es5",
+	"useTabs": true,
+	"tabWidth": 4,
+	"semi": false,
+	"singleQuote": false,
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"plugins": ["@trivago/prettier-plugin-sort-imports"],
+	"importOrder": [
+		"^react",
+		"^@pages/(.*)$",
+		"<THIRD_PARTY_MODULES>",
+		"^@common/(.*)$",
+		"^@components/(.*)$",
+		"^@styles/(.*)$",
+		"^@utils/(.*)$",
+		"^[./]"
+	],
+	"importOrderSortSpecifiers": true
+}
