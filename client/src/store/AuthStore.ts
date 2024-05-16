@@ -9,13 +9,11 @@ type Action = {
 	setPassword: (password: State["password"]) => void
 }
 
-const AuthStore = create<State & Action>()((set) => ({
+const useAuthStore = create<State & Action>()((set) => ({
 	userId: "",
 	password: "",
-	setUserId: () => (userId: State["userId"]) =>
-		set(() => ({ userId: userId })),
-	setPassword: () => (password: State["password"]) =>
-		set(() => ({ password: password })),
+	setUserId: (userId) => set({ userId }),
+	setPassword: (password) => set({ password }),
 }))
 
-export default AuthStore
+export default useAuthStore
