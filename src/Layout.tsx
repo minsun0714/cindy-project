@@ -8,7 +8,7 @@ function Layout() {
 			<Header />
 			<div className="flex flex-row">
 				<SideBar />
-				<main>
+				<main className="flex items-center justify-center w-screen h-screen">
 					<Outlet />
 				</main>
 			</div>
