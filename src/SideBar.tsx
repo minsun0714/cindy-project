@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import useSideBarStore from "./store/SideBarStore"
 
 const SideBar = () => {
@@ -8,7 +9,9 @@ const SideBar = () => {
 			className={`${isHidden} min-h-screen border bg-gray-light border-gray-light`}
 		>
 			<ul>
-				<li>1보다 큰지 확인</li>
+				<li>
+					<Link to="/largerThanOne">1보다 큰지 확인</Link>
+				</li>
 			</ul>
 		</aside>
 	)

@@ -6,10 +6,12 @@ function Layout() {
 	return (
 		<div>
 			<Header />
-			<SideBar />
-			<main>
-				<Outlet />
-			</main>
+			<div className="flex flex-row">
+				<SideBar />
+				<main>
+					<Outlet />
+				</main>
+			</div>
 		</div>
 	)
 }
