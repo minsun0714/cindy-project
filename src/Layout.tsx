@@ -6,7 +6,7 @@ function Layout() {
 	return (
 		<div>
 			<Header />
-			<div className="flex flex-row">
+			<div className="fixed flex flex-row">
 				<SideBar />
 				<main className="flex items-center justify-center w-screen h-screen">
 					<Outlet />
