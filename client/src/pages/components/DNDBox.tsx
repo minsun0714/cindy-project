@@ -1,13 +1,16 @@
+import { useState } from "react"
 import * as XLSX from "xlsx"
 
 const DNDBox = () => {
+	const [fileName, setFileName] = useState("")
+
 	const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const file = event.target.files ? event.target.files[0] : null
 		if (!file) {
 			console.log("No file selected.")
 			return
 		}
-		console.log(file.name)
+		setFileName(file.name)
 
 		const reader = new FileReader()
 
@@ -38,12 +41,31 @@ const DNDBox = () => {
 				accept=".xlsx, .xls, .csv"
 				onChange={handleFileUpload}
 			/>
-			<label
-				htmlFor="fileInput"
-				className="flex items-center justify-center w-10 h-10 text-white border rounded-full cursor-pointer border-mint bg-mint"
-			>
-				+
-			</label>
+			{fileName ? (
+				<div className="flex flex-row">
+					<label
+						htmlFor="fileInput"
+						className="underline cursor-pointer"
+					>
+						{fileName}
+					</label>
+					<span className="flex items-center justify-center ml-1">
+						<button
+							className="flex items-center justify-center w-4 h-4 text-white rounded-full bg-gray-light"
+							onClick={() => setFileName("")}
+						>
+							x
+						</button>
+					</span>
+				</div>
+			) : (
+				<label
+					htmlFor="fileInput"
+					className="flex items-center justify-center w-10 h-10 text-white border rounded-full cursor-pointer border-mint bg-mint"
+				>
+					+
+				</label>
+			)}
 		</div>
 	)
 }
