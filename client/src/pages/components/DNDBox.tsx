@@ -40,7 +40,7 @@ const DNDBox = () => {
 			/>
 			<label
 				htmlFor="fileInput"
-				className="w-10 h-10 text-white border rounded-full cursor-pointer border-mint bg-mint"
+				className="flex items-center justify-center w-10 h-10 text-white border rounded-full cursor-pointer border-mint bg-mint"
 			>
 				+
 			</label>
