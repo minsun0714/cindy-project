@@ -1,5 +1,5 @@
-import DNDBox from "./components/DNDBox"
-import DownloadButton from "./components/DownloadButton"
+import DNDBox from "../components/DNDBox"
+import DownloadButton from "../components/DownloadButton"
 
 const LargerThanOne = () => {
 	return (
