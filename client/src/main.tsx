@@ -5,17 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import App from "./App.tsx"
 import Layout from "./Layout.tsx"
 import LargerThanOne from "./pages/LargerThanOne.tsx"
-import Login from "./pages/Login.tsx"
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Layout />,
 		children: [
-			{
-				path: "/auth",
-				element: <Login />,
-			},
 			{
 				path: "/largerThanOne",
 				element: <LargerThanOne />,
