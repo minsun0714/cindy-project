@@ -11,8 +11,15 @@ const pivot = (rows: (number | string)[][]) => {
 			pivotDict[productCode] = poQuantity
 		}
 	}
-
-	const newRows: (number | string)[][] = [rows[0]]
+	const formerColumns = rows[0].slice(0, 11)
+	const latterColumns = rows[0].slice(11)
+	const newColumns = [
+		...formerColumns,
+		"consuming month",
+		"total consuming month",
+		...latterColumns,
+	]
+	const newRows: (number | string)[][] = [newColumns]
 	for (let i = 1; i < rows.length; i++) {
 		const productCode = rows[i][7]
 		const poQuantity = pivotDict[productCode]
