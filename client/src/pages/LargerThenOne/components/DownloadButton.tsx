@@ -6,8 +6,6 @@ const DownloadButton = () => {
 	const { rows } = useLargerThanOneStore()
 
 	const handleDownload = async () => {
-		console.log("📢[DNDBox.tsx:43]: newRows: ", rows)
-
 		const wb = new Excel.Workbook()
 
 		const sheet = wb.addWorksheet("sheet 1")
@@ -23,7 +21,7 @@ const DownloadButton = () => {
 		const blob = new Blob([fileData], {
 			type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 		})
-		saveAs(blob, `파일`)
+		saveAs(blob, `Work less`)
 	}
 
 	return (
