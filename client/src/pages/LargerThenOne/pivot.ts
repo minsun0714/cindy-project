@@ -29,6 +29,18 @@ const pivot = (rows: (number | string)[][]) => {
 		const orderedPO = Number(rows[i][17])
 		if (pivotDict[productCode]) {
 			rows[i][10] = Math.ceil(poQuantity / MOQ) * MOQ
+
+			const twoWeeksLater = new Date()
+			twoWeeksLater.setDate(twoWeeksLater.getDate() + 14)
+
+			const year = twoWeeksLater.getFullYear()
+			const month = (twoWeeksLater.getMonth() + 1)
+				.toString()
+				.padStart(2, "0")
+			const day = twoWeeksLater.getDate().toString().padStart(2, "0")
+
+			const formattedDate = `${year}.${month}.${day}`
+			rows[i][11] = formattedDate
 			const upperPO = Number(rows[i][10])
 			const former = rows[i].slice(0, 11)
 			const latter = rows[i].slice(11, 32)
