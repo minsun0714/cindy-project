@@ -1,7 +1,7 @@
 import { create } from "zustand"
 
 type State = {
-	rows: string[][]
+	rows: (string | number)[][]
 }
 
 type Action = {

@@ -38,7 +38,8 @@ const DNDBox = () => {
 	}
 
 	useEffect(() => {
-		pivot(rows, updateRows)
+		const newRows = pivot(rows)
+		updateRows(newRows)
 	}, [rows, updateRows])
 
 	return (
