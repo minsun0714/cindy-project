@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import * as XLSX from "xlsx"
 import pivot from "../pivot"
 import useLargerThanOneStore from "../store/largerThanOneStore"
 
 const DNDBox = () => {
 	const [fileName, setFileName] = useState("")
-	const { updateRows } = useLargerThanOneStore()
+	const { rows, updateRows } = useLargerThanOneStore()
 
 	const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const file = event.target.files ? event.target.files[0] : null
@@ -31,12 +31,16 @@ const DNDBox = () => {
 			const jsonData: string[][] = XLSX.utils.sheet_to_json(worksheet, {
 				header: 1,
 			})
-			const newRows = pivot(jsonData)
-			updateRows(newRows)
+			updateRows(jsonData)
 		}
 
 		reader.readAsArrayBuffer(file)
 	}
+
+	useEffect(() => {
+		const newRows = pivot(rows)
+		updateRows(newRows)
+	}, [rows, updateRows])
 
 	return (
 		<div className="flex items-center justify-center w-64 h-56 border-4 rounded-2xl border-mint">
