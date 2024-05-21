@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import HamburgerImg from "./assets/hamburger.svg"
 import useSideBarStore from "./store/SideBarStore"
 
@@ -12,9 +11,7 @@ const Header = () => {
 				onClick={() => setIsOpen()}
 			/>
 			<ul className="mx-8 text-white cursor-pointer">
-				<li>
-					<Link to={"/auth"}>Login</Link>
-				</li>
+				<li></li>
 			</ul>
 		</header>
 	)
